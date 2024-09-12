@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from Main import create_driver, scrape_products_on_page, scrape_product_details
+from main import create_driver, scrape_products_on_page, scrape_product_details
 
 class TestScraperFunctions(unittest.TestCase):
 
