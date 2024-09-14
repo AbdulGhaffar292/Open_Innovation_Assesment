@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  selenium:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: selenium_scraper
+    depends_on:
+      - mongodb
+    networks:
+      - my-network
+    volumes:
+      - ./logs:/app/logs  # If you want to save logs
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/steam_community
+    command: python main.py  # Runs your scraping script
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
