@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
     product_data = []
     product_links = []
-    for page in range(1, 3):
+    for page in range(1, 51):
         print(f"Scraping page {page}")
         scrape_products_page(driver, product_links)
 
